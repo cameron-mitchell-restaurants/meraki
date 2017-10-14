@@ -1,5 +1,5 @@
 
-#  Meraki Captive Portal
+#  Meraki Captive Portal /w Zapier Integration
 *Static HTML/JS/CSS Site for a Click-through Splash Page*
 
 
@@ -15,7 +15,7 @@ Just host these files in the public directory on any web server such as Apache o
 ### Sample URL received from Meraki to this page.
 *You can use this URL to test your application without an access point*
 ```
-http://localhost:5000/?base_grant_url=https%3A%2F%2Fn143.network-auth.com%2Fsplash%2Fgrant&user_continue_url=http%3A%2F%2Fspeedof.me%2F&node_id=149624922840090&node_mac=88:15:44:60:1c:1a&gateway_id=149624922840090&client_ip=10.255.60.208&client_mac=f4:5c:89:9b:17:67
+http://localhost/?base_grant_url=https%3A%2F%2Fn143.network-auth.com%2Fsplash%2Fgrant&user_continue_url=http%3A%2F%2Fspeedof.me%2F&node_id=149624922840090&node_mac=88:15:44:60:1c:1a&gateway_id=149624922840090&client_ip=10.255.60.208&client_mac=f4:5c:89:9b:17:67
 ```
 
 ## Installation
@@ -27,7 +27,8 @@ http://localhost:5000/?base_grant_url=https%3A%2F%2Fn143.network-auth.com%2Fspla
     * Note: You will need to use the IP address instead of the domain name or contact Meraki Support to enable Walled Garden Domain Names
 * Point the Meraki Splash page "Customer URL" to the HTML file. `https://yourserver/`
     * Meraki Dashboard --> Configure --> Splash Page --> Custom URL: `https://yourserver.com/splash.html`
-
+* Configure Zapier with a webhook
+* Update the **zapUrl** variable in the `meraki.js` file with your Zapier hook url.
 
 
 
