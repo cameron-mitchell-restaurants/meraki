@@ -39,6 +39,7 @@ https://yourserver/index.html?base_grant_url=https%3A%2F%2Fn143.network-auth.com
 
 ## Screenshot
 ![alt screenshot](screenshot.png)
+![alt zapier screenshot](zapier-screenshot.png)
 
 
 ## Additional Resources
