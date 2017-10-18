@@ -1,10 +1,11 @@
-
 // Zapier integration for storing form data
-const zapUrl = "YourHookURL" // Sample: "https://hooks.zapier.com/hooks/catch/123123/iqq123/";
+// include a query parameter in the splash URL with the Zapier hook address.   https://yourserver/?zap_url=https://hooks.zapier.com/hooks/catch/123123/iqq123/
 
+// extract splash URL custom parameters
+const zap_url = decodeURIComponent(GetURLParameter("zap_url"));
+    // Sample: "https://hooks.zapier.com/hooks/catch/123123/iqq123/";
 
-
-// Parse paramaters
+// extract Meraki provided paramaters
 var base_grant_url = decodeURIComponent(GetURLParameter("base_grant_url"));
 var user_continue_url = decodeURIComponent(GetURLParameter("user_continue_url"));
 var node_mac = GetURLParameter("node_mac");
@@ -53,10 +54,11 @@ function login(){
     data.email = document.getElementById("email").value;
     data.company = document.getElementById("company").value;
     alert("Hello "+data.firstname +"\n"+"Thanks for providing your email: "+data.email);
+    data.clientMac = client_mac;
     console.log("Storing data to db...", data);
 
     // Zapier Webhook - Store data
-    $.post( zapUrl, data, function(){
+    $.post( zap_url, data, function(){
         console.log("zap success");
         // authenticate user on wirless
         authUser();
