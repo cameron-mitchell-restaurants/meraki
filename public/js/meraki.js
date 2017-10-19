@@ -57,7 +57,7 @@ function login(){
     data.company = document.getElementById("company").value;
     alert("Hello "+data.firstname +"\n"+"Thanks for providing your email: "+data.email);
     data.clientMac = client_mac;
-    data.login_time = new Date();
+    data.timestamp = new Date().toISOString();
     console.log("Storing data to db...", data);
 
     // Zapier Webhook - Store data
