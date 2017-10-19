@@ -3,6 +3,7 @@
 
 // extract splash URL custom parameters
 const zap_url = decodeURIComponent(GetURLParameter("zap_url"));
+    console.log("zap_url: "+zap_url);
     // Sample: "https://hooks.zapier.com/hooks/catch/123123/iqq123/";
 
 // extract Meraki provided paramaters
