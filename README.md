@@ -11,6 +11,9 @@ Just host these files in the public directory on any web server such as Apache o
 
 This version posts the form data to a Zapier webhook and is required for operation. 
 
+
+
+
 ### Sample URL received from Meraki to this page.
 *You can use this URL to test your application without an access point*
 ```
@@ -23,18 +26,22 @@ http://localhost/?base_grant_url=https%3A%2F%2Fn143.network-auth.com%2Fsplash%2F
     * Meraki Dashboard --> Configure --> Splash Page: Click-through
 * Add the domain address of the webserver to the "Walled Garden" 
     * Meraki Dashboard --> Configure --> Access Control --> SSID:yourSSID --> Walled Garden.
-    * Note: You will need to use the IP address instead of the domain name or contact Meraki Support to enable Walled Garden Domain Names
-* Point the Meraki Splash page "Customer URL" to the HTML file. `https://yourserver/`
-    * Meraki Dashboard --> Configure --> Splash Page --> Custom URL: `https://yourserver.com/index.html`
-* Configure Zapier with a webhook
-* Update the **zapUrl** variable in the `meraki.js` file with your Zapier hook url.
     * Add the Zapier domain in your Walled Garden in the Meraki Dashboard `https://hooks.zapier.com`
+    * Note: You will need to use the IP address instead of the domain name or contact Meraki Support to enable Walled Garden Domain Names
+* Configure Zapier with a webhook
+* Configure Meraki with a custom Splash URL
+   * https://yourserver/index.html&zap_url=
+   * Append a ```zap_url``` query with your Zap hook URL.
+   ```
+   https://dexterlabora.github.io/excap-clientjs-zapier/public/index.html?zap_url=https://hooks.zapier.com/hooks/catch/ffffff/ffffff/
+   ```
+  
 
 
 
-## Sample URL paramater string
+## Sample URL paramater string received by client
 ```
-https://yourserver/index.html?base_grant_url=https%3A%2F%2Fn143.network-auth.com%2Fsplash%2Fgrant&user_continue_url=http%3A%2F%2Fask.com%2F&node_id=149624921787028&node_mac=88:15:44:50:0a:94&gateway_id=149624921787028&client_ip=10.110.154.195&client_mac=60:e3:ac:f7:48:08:22
+https://yourserver/index.html?base_grant_url=https%3A%2F%2Fn143.network-auth.com%2Fsplash%2Fgrant&user_continue_url=http%3A%2F%2Fask.com%2F&node_id=149624921787028&node_mac=88:15:44:50:0a:94&gateway_id=149624921787028&client_ip=10.110.154.195&client_mac=60:e3:ac:f7:48:08:22&zap_url=https://hooks.zapier.com/hooks/catch/ffffff/ffffff/
 ```
 
 ## Screenshot
