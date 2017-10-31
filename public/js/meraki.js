@@ -55,7 +55,7 @@ function login(){
     data.lastname = document.getElementById("lastname").value;
     data.email = document.getElementById("email").value;
     data.company = document.getElementById("company").value;
-    alert("Hello "+data.firstname +"\n"+"Thanks for providing your email: "+data.email);
+    // alert("Hello "+data.firstname +"\n"+"Thanks for providing your email: "+data.email);
     data.clientMac = client_mac;
     data.timestamp = new Date().toISOString();
     console.log("Storing data to db...", data);
